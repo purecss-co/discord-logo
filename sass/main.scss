@@ -1,0 +1,302 @@
+// colors
+$bg-color: #2a2d32;
+$logo-color: #ffffff;
+$box-color: #7289DA;
+
+// mixins
+@mixin center {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+@mixin pseudo($position: absolute, $content: "") {
+    content: $content;
+    position: $position;
+}
+
+html, body{
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  background: $bg-color;
+  overflow: hidden;
+}
+
+.logo{
+  @include center;
+  top: -5vmin;
+  width: 60vmin;
+  height: 60vmin;
+  background: $box-color;
+  border-radius: 6vmin;
+
+  &:before{
+    @include pseudo;
+    bottom: -8.5vmin;
+    right: 0;
+    width: 10vmin;
+    height: 14vmin;
+    background: $box-color;
+  }
+
+  &:after{
+    @include pseudo;
+    bottom: -16.8vmin;
+    right: 3.4vmin;
+    width: 0;
+    height: 0;
+    border-bottom: 25vmin solid $bg-color;
+    border-left: 7vmin solid transparent;
+    border-right: 5.5vmin solid transparent;
+    transform: rotate(-35deg);
+  }
+
+  .body-abstract{
+    width: 23vmin;
+    height: 24.7vmin;
+    background: $logo-color;
+    border-radius: 50% / 10%;
+
+    &:before{
+      content: '';
+      position: absolute;
+      top: 9%;
+      bottom: 9%;
+      right: -5%;
+      left: -5%;
+      background: inherit;
+      border-radius: 5% / 50%;
+    }
+  }
+
+  .body-1{
+    @include center;
+    top: -1.2vmin;
+    left: 12.7vmin;
+    @extend .body-abstract;
+    transform: skewX(14deg);
+  }
+
+  .body-2{
+    @include center;
+    top: -1.2vmin;
+    left: -12vmin;
+    @extend .body-abstract;
+    transform: skewX(-14deg);
+  }
+
+  .eye-abstract{
+    width: 7vmin;
+    height: 7.7vmin;
+    background: $box-color;
+    border-radius: 50%;
+  }
+
+  .eye{
+    @include center;
+    z-index: 2;
+    top: 4.8vmin;
+    left: -12.5vmin;
+    @extend .eye-abstract;
+
+    &:before{
+      @include pseudo;
+      left: 12.5vmin;
+      @extend .eye-abstract;
+    }
+
+    &:after{
+      @include pseudo;
+      top: 9.2vmin;
+      left: 4vmin;
+      width: 12.5vmin;
+      height: 4vmin;
+      border-radius: 50%;
+      background: $logo-color;
+    }
+  }
+
+  .hand-abstract{
+    width: 13.2vmin;
+    height: 10vmin;
+    background: $logo-color;
+    border-radius: 50% / 20%;
+  }
+
+  .hand{
+    @include center;
+    top: 17.7vmin;
+    left: 26.3vmin;
+    @extend .hand-abstract;
+    transform: rotate(-23deg);
+
+    &:before{
+      @include pseudo;
+      top: -10.2vmin;
+      left: -24vmin;
+      @extend .hand-abstract;
+      transform: rotate(47deg);
+    }
+  }
+
+  .hand-left{
+    @include center;
+    top: 17.8vmin;
+    left: -15.5vmin;
+    width: 13.2vmin;
+    height: 5vmin;
+    background: $box-color;
+    border-radius: 50%;
+    transform: rotate(26deg);
+
+    &:before{
+      @include pseudo;
+      top: -1.03vmin;
+      left: -2.3vmin;
+      width: 17vmin;
+      height: 5vmin;
+      background: $logo-color;
+      border-radius: 50%;
+      transform: rotate(-5deg);
+    }
+
+    &:after{
+      @include pseudo;
+      top: 4.7vmin;
+      left: 8vmin;
+      width: 2vmin;
+      height: 4.5vmin;
+      background: $box-color;
+      transform: rotate(13deg);
+    }
+  }
+
+  .hand-right{
+    @include center;
+    top: 18.2vmin;
+    left: 15.5vmin;
+    width: 13.2vmin;
+    height: 5vmin;
+    background: $box-color;
+    border-radius: 50%;
+    transform: rotate(-22deg);
+
+    &:before{
+      @include pseudo;
+      top: -1.1vmin;
+      left: -2.3vmin;
+      width: 17vmin;
+      height: 5vmin;
+      background: $logo-color;
+      border-radius: 50%;
+      transform: rotate(5deg);
+    }
+
+    &:after{
+      @include pseudo;
+      top: 5.4vmin;
+      left: 2vmin;
+      width: 4vmin;
+      height: 4vmin;
+      background: $box-color;
+      transform: rotate(-18deg);
+    }
+  }
+
+  .foot-abstract{
+    width: 13.2vmin;
+    height: 10vmin;
+    background: $logo-color;
+    border-radius: 50% / 20%;
+  }
+
+  .foot{
+    @include center;
+    top: -17.5vmin;
+    left: 17vmin;
+    @extend .foot-abstract;
+    transform: rotate(18deg);
+
+    &:after{
+      @include pseudo;
+      top: 5.2vmin;
+      left: -15.8vmin;
+      @extend .foot-abstract;
+      transform: rotate(-35.5deg);
+    }
+  }
+
+  .foot-right{
+    @include center;
+    top: -21vmin;
+    left: 13.5vmin;
+    width: 13.2vmin;
+    height: 5vmin;
+    background: $box-color;
+    border-radius: 50% / 20%;
+    transform: rotate(22deg);
+
+    &:before{
+      @include pseudo;
+      top: 1.15vmin;
+      left: -2.8vmin;
+      width: 18vmin;
+      height: 6vmin;
+      background: $logo-color;
+      border-radius: 50% / 15%;
+      border-top-left-radius: 50%;
+      border-top-right-radius: 35%;
+      transform: rotate(-7deg);
+    }
+
+    &:after{
+      @include pseudo;
+      top: -1.5vmin;
+      left: 2.1vmin;
+      width: 2vmin;
+      height: 2vmin;
+      background: $box-color;
+      transform: rotate(12deg);
+    }
+  }
+
+  .foot-left{
+    @include center;
+    top: -21.5vmin;
+    left: -12.5vmin;
+    width: 15vmin;
+    height: 5vmin;
+    background: $box-color;
+    border-radius: 50% / 20%;
+    transform: rotate(-22deg);
+
+    &:before{
+      @include pseudo;
+      top: 1.2vmin;
+      left: -0.45vmin;
+      width: 17vmin;
+      height: 6vmin;
+      background: $logo-color;
+      border-radius: 50% / 15%;
+      border-top-right-radius: 50%;
+      transform: rotate(8deg);
+    }
+
+    &:after{
+      @include pseudo;
+      top: -1.5vmin;
+      left: 9.8vmin;
+      width: 2vmin;
+      height: 2vmin;
+      background: $box-color;
+      transform: rotate(-10deg);
+    }
+  }
+
+}
